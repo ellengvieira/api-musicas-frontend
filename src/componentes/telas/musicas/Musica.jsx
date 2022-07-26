@@ -135,7 +135,10 @@ function Musica() {
                     fetch(`${process.env.REACT_APP_ENDERECO_API}/musicas/${objeto.codigo}`,
                         {
                             method: "DELETE",
-                            "x-access-token": Autenticacao.pegaAutenticacao().token
+                            headers: {
+                                "Content-Type": "application/json",
+                                "x-access-token": Autenticacao.pegaAutenticacao().token
+                            }
                         })
                         .then(response => response.json())
                         .then(json => setAlerta({ status: json.status, message: json.message }))
