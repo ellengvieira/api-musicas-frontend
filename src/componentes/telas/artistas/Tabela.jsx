@@ -11,7 +11,7 @@ function Tabela() {
             <h1>Artistas</h1>
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdicao"
                 onClick={() => {
-                    setObjeto({ codigo: 0, nome: "" });
+                    setObjeto({ codigo: "", nome: "" });
                     setEditar(false);
                     setAlerta({ status: "", message: "" });
                 }}>
@@ -36,6 +36,7 @@ function Tabela() {
                                     <button type="button" className="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalEdicao"
                                             onClick={() => {
                                                 recuperar(objeto.codigo);
+                                                setObjeto(objeto);
                                                 setEditar(true);
                                                 setAlerta({ status: "", message: "" });
                                             }}>

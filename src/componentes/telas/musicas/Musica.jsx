@@ -13,7 +13,7 @@ function Musica() {
     const [alerta, setAlerta] = useState({ status: "", message: "" });
     const [listaObjetos, setListaObjetos] = useState([]);
     const [editar, setEditar] = useState(false);
-    const [objeto, setObjeto] = useState({ codigo: "", nome: "", duracao : "", artista : "" });
+    const [objeto, setObjeto] = useState({ codigo: "", nome: "", duracao : "", codArtista : "" });
     const [listaArtistas, setListaArtistas] = useState([]);
 
     const recuperar = async codigo => {
@@ -32,7 +32,7 @@ function Musica() {
                     }
                     throw new Error('Erro código: ' + response.status)
                 })
-                .then(data => setObjeto(data))
+                //.then(data => setObjeto(data))
         } catch (err) {
             console.log(err);
             window.location.reload();
@@ -50,7 +50,7 @@ function Musica() {
                     "Content-Type": "application/json",
                     "x-access-token": Autenticacao.pegaAutenticacao().token
                 },
-                body: JSON.stringify(objeto),
+                body:JSON.stringify(objeto),
             }).then(response => {
                 if (response.ok) {
                     return response.json();
@@ -69,7 +69,7 @@ function Musica() {
         } catch (err) {
             console.log(err);
             window.location.reload();
-            navigate("/login", { replace: true });
+           navigate("/login", { replace: true });
         }
         recuperaMusicas();
     }

@@ -31,7 +31,7 @@ function Artista() {
                     }
                     throw new Error('Erro código: ' + response.status)
                 })
-                .then(data => setObjeto(data))
+                //.then(data => alert(JSON.stringify(data)))
         } catch (err) {
             console.log(err);
             window.location.reload();

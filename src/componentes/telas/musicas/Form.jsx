@@ -55,8 +55,8 @@ function Form() {
                 msgvalido="Campo informado corretamente"
                 msginvalido="Valor inválido"
                 maximocaracteres={40} />
-            <CampoSelect value={objeto.artista}
-                id="txtArtista" name="artista" label="Artista"
+            <CampoSelect value={objeto.codArtista}
+                id="txtArtista" name="codArtista" label="Artista"
                 onchange={handleChange}
                 msgvalido="OK" msginvalido="Informe o artista"
                 requerido={true}>
